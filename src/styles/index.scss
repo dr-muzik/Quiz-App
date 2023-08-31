@@ -1,0 +1,28 @@
+@import "./gameint.scss";
+@import "./ques.scss";
+@import "./submit.scss";
+@import "./details.scss";
+@import "./login.scss";
+@import "./reg.scss";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+.App {
+  width: 100%;
+  max-height: 100%;
+
+  padding-bottom: 40px;
+  // background: linear-gradient(rgb(225, 0, 255), rgba(132, 209, 132, 0.568));
+}
