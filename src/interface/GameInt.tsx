@@ -18,13 +18,13 @@ const GameInt = () => {
   let data: IQuestion[];
   //switch cases
   switch (quizId) {
-    case (quizId = "quiz-1"):
+    case (quizId = "C.R.S"):
       data = Quiz1;
       break;
-    case (quizId = "quiz-2"):
+    case (quizId = "Computer-Studies"):
       data = Quiz2;
       break;
-    case (quizId = "quiz-3"):
+    case (quizId = "History"):
       data = Quiz3;
       break;
 
@@ -64,7 +64,7 @@ const GameInt = () => {
             <div className="top">
               <div className="left">
                 <CountDown
-                  seconds={120}
+                  seconds={60}
                   questions={data}
                   // getObject={getObject}
                 />

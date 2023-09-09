@@ -1,6 +1,10 @@
 .details {
   .container {
     padding-block: 50px;
+    .route {
+      display: flex;
+      justify-content: space-between;
+    }
     .remark {
       text-align: center;
       margin-bottom: 60px;

@@ -1,18 +1,33 @@
 .reg {
   width: 100%;
-  max-width: 500px;
-  height: 100%;
-  max-height: 600px;
-  transform: translate(50%, 4%);
+
+  // transform: translate(50%, 4%);
   // border: 2px solid gray;
-  background-color: rgb(255, 239, 194);
-  padding: 20px;
-  form {
-    .form-control {
-      font-size: 16px;
-      padding-block: 10px;
-      &::placeholder {
-        color: rgba(180, 176, 176, 0.623);
+
+  .container {
+    padding-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    form {
+      padding: 5px 20px 20px 20px;
+      background-color: rgb(255, 239, 194);
+
+      width: 100%;
+      max-width: 500px;
+      & > div {
+        padding-block: 0.5px;
+        .form-label {
+          font-size: 15px;
+        }
+        .form-control {
+          font-size: 14px;
+          padding-block: 8px;
+          &::placeholder {
+            color: rgba(180, 176, 176, 0.623);
+          }
+        }
       }
     }
   }

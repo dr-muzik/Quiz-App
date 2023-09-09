@@ -4,6 +4,7 @@
 @import "./details.scss";
 @import "./login.scss";
 @import "./reg.scss";
+@import "./dashboard.scss";
 
 h1,
 h2,
@@ -23,6 +24,6 @@ html {
   width: 100%;
   max-height: 100%;
 
-  padding-bottom: 40px;
+  // padding-bottom: 40px;
   // background: linear-gradient(rgb(225, 0, 255), rgba(132, 209, 132, 0.568));
 }

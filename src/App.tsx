@@ -10,6 +10,10 @@ import Details from "./components/Details";
 import Dashboard from "./dashboard/Dashboard";
 import Login from "./Pages/Login";
 import Registration from "./Pages/Registration";
+import Welcome from "./components/dashboardComponent/Welcome";
+import Quiz from "./components/dashboardComponent/Quiz";
+import Report from "./components/dashboardComponent/Report";
+import Profile from "./components/dashboardComponent/Profile";
 // import { IQuestion } from "./Questiongenerator";
 
 export interface ICollation {
@@ -42,7 +46,12 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Login />} />
             <Route path="signup" element={<Registration />} />
-            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="dashboard" element={<Dashboard />}>
+              <Route path="/dashboard/home" element={<Welcome />} />
+              <Route path="/dashboard/quiz" element={<Quiz />} />
+              <Route path="/dashboard/report" element={<Report />} />
+              <Route path="/dashboard/profile" element={<Profile />} />
+            </Route>
             <Route path="gameInt/:quizId" element={<GameInt />} />
             <Route path="submit" element={<SubmitInt />} />
             <Route path="submit/:id" element={<Details />} />

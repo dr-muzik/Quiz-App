@@ -1,0 +1,36 @@
+.wrapper {
+  min-height: 100vh;
+  nav {
+    max-height: 200px;
+    border-bottom: 2px solid black;
+  }
+  main {
+    display: flex;
+    padding: 0;
+    aside {
+      width: 20%;
+      background-color: rgb(255, 249, 240);
+      padding-top: 30px;
+
+      .active {
+        background-color: rgb(255, 188, 87);
+        font-weight: 700;
+        cursor: pointer;
+        padding: 18px;
+        text-align: center;
+      }
+      .component {
+        padding: 18px;
+        text-align: center;
+        &:hover {
+          background-color: blanchedalmond;
+          font-weight: 700;
+          cursor: pointer;
+        }
+      }
+    }
+    section {
+      width: 80%;
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import "../styles/button.css";
 import { IQuestion } from "../Questiongenerator";
 import { useAppContext } from "../state management/StateContext";
+import { useNavigate } from "react-router-dom";
 
 interface CountDownProps {
   seconds: number;
@@ -13,11 +14,11 @@ interface CountDownProps {
   getObject(): IQuestion[]
 } */
 const formatTime = (time: number) => {
-  let minutes: any = Math.floor(time / 60);
-  let seconds: any = Math.floor(time - minutes * 60);
+  let minutes: number = Math.floor(time / 60);
+  let seconds: number = Math.floor(time - minutes * 60);
 
-  if (minutes <= 10) minutes = minutes.toString().padStart(2, "0");
-  if (seconds <= 10) seconds = seconds.toString().padStart(2, "0");
+  if (minutes <= 10) minutes = parseInt(minutes.toString().padStart(2, "0"));
+  if (seconds <= 10) seconds = parseInt(seconds.toString().padStart(2, "0"));
 
   return `${minutes}:${seconds}`;
 };
@@ -26,14 +27,9 @@ const CountDown: React.FC<CountDownProps> = ({ seconds, questions }) => {
   const [countDown, setCountDown] = useState<number>(seconds);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [check, setCheck] = useState<boolean>(false);
-  // const [object, setObject] = useState<IQuestion[]>([]);
 
   const { updateObject } = useAppContext();
-  const timerId: any = useRef();
-
-  // useEffect(() => {
-
-  // }, [questions, updateObject]);
+  const timerId: React.MutableRefObject<number | undefined> = useRef();
 
   const startHandler = () => {
     setIsRunning(true);
@@ -42,26 +38,30 @@ const CountDown: React.FC<CountDownProps> = ({ seconds, questions }) => {
       setCountDown((prev: number) => prev - 1);
     }, 1000);
     updateObject(questions);
-    // getObject(object); //GameInt(Parent) is calling this 'object' from its child(CountDown)
+
     console.log(timerId.current);
 
     console.log(isRunning);
-    // console.log(object);
   };
 
+  const navigate = useNavigate();
   useEffect(() => {
     if (countDown === 0) {
       clearInterval(timerId.current);
       setCountDown(seconds);
-      alert("END");
-      setIsRunning(false);
+      // alert("END");
+      // setIsRunning(false);
+      navigate("/submit");
     }
-  }, [countDown, seconds]);
+  }, [countDown, navigate, seconds]);
 
+  // pause button handler
   const pauseHandler = () => {
     setCheck(!check);
     clearInterval(timerId.current);
   };
+
+  // play button handler
   const playHandler = () => {
     setCheck(!check);
 
@@ -70,6 +70,7 @@ const CountDown: React.FC<CountDownProps> = ({ seconds, questions }) => {
     }, 1000);
   };
 
+  // reset button handler
   const resetHandler = () => {
     setIsRunning(false);
     setCheck(false);

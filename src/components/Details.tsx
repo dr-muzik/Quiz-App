@@ -35,7 +35,7 @@ const Details = () => {
   let grade: string[];
 
   switch (true) {
-    case userScore > 70:
+    case userScore > 80:
       grade = ["Excellent", "A"];
       break;
     case userScore > 60:
@@ -74,9 +74,12 @@ const Details = () => {
   return (
     <div className="details">
       <div className="container">
-        <div>
-          <Link onClick={resetState} to="/">
+        <div className="route">
+          <Link onClick={resetState} to="/dashboard">
             <h3>Play Again</h3>
+          </Link>
+          <Link onClick={resetState} to="/">
+            <h3>End</h3>
           </Link>
         </div>
         <div className="remark">
