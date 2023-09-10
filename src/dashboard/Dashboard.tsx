@@ -46,6 +46,11 @@ const Dashboard: React.FC = () => {
     <div className="wrapper">
       <nav>
         <h1>NAV BAR</h1>
+        <div className="inner-left">
+          <div className="circle-small"></div>
+          <p>Michael Peters</p>
+          <img src="" alt="" />
+        </div>
       </nav>
       <main>
         <aside>
