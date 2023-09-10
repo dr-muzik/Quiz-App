@@ -1,0 +1,45 @@
+.container-main {
+  padding: 20px 40px 40px 80px;
+  h4:nth-of-type(1) {
+    margin-bottom: 30px;
+  }
+  .container-inner {
+    ul {
+      margin-left: 30px;
+      margin-bottom: 60px;
+      & > li {
+        margin-bottom: 15px;
+        a {
+          color: #666666;
+          font-size: 18px;
+          font-weight: 400;
+
+          &:hover {
+            color: rgba(245, 191, 43, 0.822);
+            text-decoration: underline;
+            font-weight: 600;
+          }
+        }
+        .disable {
+          color: #bdbdbd;
+          font-style: italic;
+          &:hover {
+            color: #bdbdbd;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .rules {
+      width: 100%;
+      //   max-width: 500px;
+
+      & > h5 {
+        margin-bottom: 20px;
+      }
+      & > li {
+        color: #666666;
+      }
+    }
+  }
+}

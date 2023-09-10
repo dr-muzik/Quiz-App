@@ -1,36 +1,63 @@
 .wrapper {
   min-height: 100vh;
-  nav {
+  & > nav {
     max-height: 200px;
     border-bottom: 2px solid black;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 9999;
   }
   main {
     display: flex;
     padding: 0;
     aside {
-      width: 20%;
-      background-color: rgb(255, 249, 240);
+      // width: 20%;
+      // background-color: #f5bf2b60;
+      // padding-top: 30px;
+      // position: fixed;
+      // top: 50px;
+      // height: 100%;
+      width: 100%;
+      max-width: 270px;
+      background-color: rgba(245, 191, 43, 0.3764705882);
       padding-top: 30px;
-
-      .active {
-        background-color: rgb(255, 188, 87);
-        font-weight: 700;
-        cursor: pointer;
-        padding: 18px;
-        text-align: center;
-      }
-      .component {
-        padding: 18px;
-        text-align: center;
-        &:hover {
-          background-color: blanchedalmond;
+      position: fixed;
+      // top: 7;
+      height: 100%;
+      // min-height: 50vh;
+      a {
+        color: black;
+        .size {
+          font-size: 18px;
+        }
+        .active {
+          background-color: rgb(255, 188, 87);
           font-weight: 700;
           cursor: pointer;
+          padding: 18px;
+          text-align: center;
+        }
+        .component {
+          padding: 18px;
+          text-align: center;
+          &:hover {
+            background-color: blanchedalmond;
+            font-weight: 700;
+            cursor: pointer;
+          }
         }
       }
     }
-    section {
+    & > section {
       width: 80%;
+      /* margin-left: 270px; */
+      position: relative;
+      left: 270px;
+      // border: 2px solid red;
+      height: max-content;
+      // z-index: -1;
     }
   }
 }

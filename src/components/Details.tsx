@@ -75,10 +75,10 @@ const Details = () => {
     <div className="details">
       <div className="container">
         <div className="route">
-          <Link onClick={resetState} to="/dashboard">
+          <Link onClick={resetState} to="/dashboard/Quiz">
             <h3>Play Again</h3>
           </Link>
-          <Link onClick={resetState} to="/">
+          <Link onClick={resetState} to="/dashboard/Report">
             <h3>End</h3>
           </Link>
         </div>

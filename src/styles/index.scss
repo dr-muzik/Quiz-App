@@ -5,6 +5,12 @@
 @import "./login.scss";
 @import "./reg.scss";
 @import "./dashboard.scss";
+@import "./main.scss";
+@import "./footer.scss";
+@import "./header.scss";
+@import "./dashboardstyles/quiz.scss";
+@import "./dashboardstyles/welcome.scss";
+@import "./dashboardstyles/profile.scss";
 
 h1,
 h2,
@@ -26,4 +32,9 @@ html {
 
   // padding-bottom: 40px;
   // background: linear-gradient(rgb(225, 0, 255), rgba(132, 209, 132, 0.568));
+}
+
+a {
+  text-decoration: none;
+  color: rgba(245, 191, 43, 0.3764705882);
 }

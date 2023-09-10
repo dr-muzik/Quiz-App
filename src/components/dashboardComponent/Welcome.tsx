@@ -1,10 +1,12 @@
 import React from "react";
 
-const Welcome = () => {
+const Welcome: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome MICHEAL</h1>
-    </div>
+    <>
+      <div className="container">
+        <h1 id="welcome">Welcome MICHEAL</h1>
+      </div>
+    </>
   );
 };
 

@@ -14,6 +14,7 @@ import Welcome from "./components/dashboardComponent/Welcome";
 import Quiz from "./components/dashboardComponent/Quiz";
 import Report from "./components/dashboardComponent/Report";
 import Profile from "./components/dashboardComponent/Profile";
+import Home from "./Pages/Home";
 // import { IQuestion } from "./Questiongenerator";
 
 export interface ICollation {
@@ -23,34 +24,19 @@ export interface ICollation {
 }
 
 function App() {
-  // const [data, setData] = useState<IQuestion[]>([]);
-
-  // const getData = (arg: IQuestion[]) => {
-  //   setData(arg);
-  // };
-
-  // const location = useLocation();
-  // const reset = location.state && location.state.reset;
-
-  // useEffect(() => {
-  //   if (reset) {
-  //     setSelectedAnswers([]);
-  //   }
-  // }, [reset]);
-  // console.log(selectedAnswers);
-
   return (
     <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route index element={<Login />} />
+            <Route index element={<Home />} />
+            <Route path="login" element={<Login />} />
             <Route path="signup" element={<Registration />} />
-            <Route path="dashboard" element={<Dashboard />}>
-              <Route path="/dashboard/home" element={<Welcome />} />
-              <Route path="/dashboard/quiz" element={<Quiz />} />
-              <Route path="/dashboard/report" element={<Report />} />
-              <Route path="/dashboard/profile" element={<Profile />} />
+            <Route path="dashboard/:page" element={<Dashboard />}>
+              <Route index element={<Welcome />} />
+              <Route path="Quiz" element={<Quiz />} />
+              <Route path="Report" element={<Report />} />
+              <Route path="Profile" element={<Profile />} />
             </Route>
             <Route path="gameInt/:quizId" element={<GameInt />} />
             <Route path="submit" element={<SubmitInt />} />

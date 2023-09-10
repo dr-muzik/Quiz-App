@@ -1,0 +1,16 @@
+nav {
+  padding-inline: 20px;
+  display: flex;
+  justify-content: space-between;
+  // border: 2px solid red;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+  }
+}
