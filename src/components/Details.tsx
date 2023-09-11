@@ -10,6 +10,7 @@ const Details: React.FC = () => {
     selectedAnswers,
     data,
     report,
+    course,
     updateData,
     updateObject,
     updateSelectedAnswers,
@@ -28,7 +29,7 @@ const Details: React.FC = () => {
     (el) => data[el.id - 1].correctAnswer === el.Answer
   ).length;
 
-  console.log(correctAnsNum);
+  // console.log(correctAnsNum);
   const totalScore: number = selectedAnswers.length * 10;
 
   const userScore: number = correctAnsNum * 10;
@@ -52,8 +53,8 @@ const Details: React.FC = () => {
       grade = ["Fail", "F"];
   }
 
-  console.log(grade);
-  console.log(totalScore);
+  // console.log(grade);
+  // console.log(totalScore);
 
   selectedAnswers.sort((a, b) => {
     // const idA = parseInt(a.id);
@@ -67,7 +68,7 @@ const Details: React.FC = () => {
     }
     return -1;
   });
-  console.log(selectedAnswers);
+  // console.log(selectedAnswers);
 
   const singleGrade: string = grade[1];
   const singleRemark: string = grade[0];
@@ -76,8 +77,14 @@ const Details: React.FC = () => {
     grade: singleGrade,
     score: totalScore,
     remark: singleRemark,
+    subject: course,
   };
-  updateReport([...report, newReport]);
+  const updateHandler = () => {
+    updateReport([...report, newReport]);
+    updateData([]);
+    updateObject([]);
+    updateSelectedAnswers([]);
+  };
 
   return (
     <div className="details">
@@ -86,7 +93,7 @@ const Details: React.FC = () => {
           <Link onClick={resetState} to="/dashboard/Quiz">
             <h3>Play Again</h3>
           </Link>
-          <Link to="/dashboard/Report">
+          <Link to="/dashboard/Report" onClick={updateHandler}>
             <h3>End</h3>
           </Link>
         </div>

@@ -35,7 +35,7 @@ const Report: React.FC = () => {
             className={`${active === 2 ? "diff" : "courses-each"}`}
             onClick={() => activeHandler(2)}
           >
-            <h5 className="computer">Computer Sci.</h5>
+            <h5 className="computer">COS 105</h5>
           </div>
           <div
             className={`${active === 3 ? "diff" : "courses-each"}`}
@@ -50,7 +50,7 @@ const Report: React.FC = () => {
           </div>
           <div className={`${active !== 1 ? "d-none" : "table-rep"}`}>
             {CRS.map((el, i) => (
-              <table>
+              <table key={i}>
                 <thead>
                   <tr>
                     <th>S/N</th>
@@ -72,7 +72,7 @@ const Report: React.FC = () => {
           </div>
           <div className={`${active !== 2 ? "d-none" : "table-rep"}`}>
             {Computerdata.map((el, i) => (
-              <table>
+              <table key={i}>
                 <thead>
                   <tr>
                     <th>S/N</th>
@@ -94,7 +94,7 @@ const Report: React.FC = () => {
           </div>
           <div className={`${active !== 3 ? "d-none" : "table-rep"}`}>
             {Historydata.map((el, i) => (
-              <table>
+              <table key={i}>
                 <thead>
                   <tr>
                     <th>S/N</th>

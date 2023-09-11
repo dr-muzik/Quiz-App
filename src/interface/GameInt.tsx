@@ -10,7 +10,7 @@ const GameInt: React.FC = () => {
   const [index, setIndex] = useState<number>(0);
 
   //called the global state manager
-  const { selectedAnswers, updateData, object } = useAppContext();
+  const { selectedAnswers, updateData, object, updateCourse } = useAppContext();
 
   let { quizId } = useParams();
   // console.log(quizId);
@@ -34,7 +34,8 @@ const GameInt: React.FC = () => {
 
   useEffect(() => {
     updateData(data);
-  }, [data, updateData]);
+    updateCourse(quizId);
+  }, [data, quizId, updateCourse, updateData]);
 
   const nextQuestionHandler = () => {
     if (index < data.length - 1) {
