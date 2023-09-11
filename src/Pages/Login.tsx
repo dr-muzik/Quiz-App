@@ -36,7 +36,7 @@ const Login = () => {
             />
           </div>
           <div className="btn-w d-grid gap-2">
-            <Link to="/dashboard/home" className="button">
+            <Link to="/dashboard/Home" className="button">
               <button className="btn btn-primary" type="button">
                 LOGIN
               </button>

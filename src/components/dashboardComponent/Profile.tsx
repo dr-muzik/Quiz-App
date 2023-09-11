@@ -6,8 +6,13 @@ const Profile: React.FC = () => {
       {/* <h1>This is your Profile, MICHEAL</h1> */}
 
       <div className="container">
+        <div className="user">
+          <h2>User Profile</h2>
+        </div>
         <div className="photo">
-          <div className="circle">Passport</div>
+          <div className="circle">
+            {/* <img src="/image/IMG_wiz.jpg" alt="" /> */}
+          </div>
         </div>
         <div className="details">
           <table>

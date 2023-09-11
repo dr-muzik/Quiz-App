@@ -1,34 +1,51 @@
 .Profile {
-  padding: 40px 40px 40px 80px;
+  // padding: 0px 40px 0px 80px;
+  // border: 1px solid blue;
 
   .container {
-    padding: 20px;
+    padding: 40px;
     width: 100%;
     max-width: 500px;
+    background-color: #fff;
+    box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+
     // border: 1px dotted black;
+    .user {
+      text-align: center;
+      margin-bottom: 30px;
+    }
     .photo {
       margin-bottom: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
       .circle {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         border-radius: 100%;
-        border: 2px solid rgb(255, 188, 87);
+        border: 2px solid #213f7d;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url("/image/IMG_wiz.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: fill;
+        & > img {
+          width: 150px;
+          height: 150px;
+        }
       }
     }
     .details {
       table {
+        font-size: 14px;
         tr {
-          border-bottom: 1px solid rgb(255, 188, 87);
+          border-bottom: 1px solid #213f7d;
           th,
           td {
             padding-block: 10px;
-            color: #666666;
+            color: #213f7d;
           }
         }
       }

@@ -2,38 +2,85 @@
   min-height: 100vh;
   & > nav {
     max-height: 200px;
-    border-bottom: 2px solid black;
-    position: sticky;
+    // border-bottom: 2px solid black;
+    position: fixed;
     top: 0;
     width: 100%;
     background-color: #fff;
+    box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+    padding-block: 10px;
     z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    & > h1 {
+      color: #213f7d;
+    }
+    .center {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: #213f7d;
+    }
+    .inner-left {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      .circle-small {
+        width: 60px;
+        height: 60px;
+        border: 2px solid #213f7d;
+        border-radius: 100%;
+        background-image: url("/image/IMG_wiz.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .dropdown {
+        background-color: #fff;
+        box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+        position: absolute;
+        bottom: -40px;
+        right: 10px;
+        width: 100%;
+        max-width: 120px;
+        padding: 20px 40px;
+      }
+      .hidden {
+        display: none;
+      }
+    }
   }
   main {
     display: flex;
     padding: 0;
     aside {
-      // width: 20%;
-      // background-color: #f5bf2b60;
-      // padding-top: 30px;
-      // position: fixed;
-      // top: 50px;
-      // height: 100%;
+      overflow: hidden;
+      box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+      z-index: 999;
       width: 100%;
       max-width: 270px;
-      background-color: rgba(245, 191, 43, 0.3764705882);
-      padding-top: 30px;
+      top: 40px;
+      // background-color: rgba(245, 191, 43, 0.376);
+      background-color: #fff;
+      padding-top: 70px;
       position: fixed;
       // top: 7;
       height: 100%;
       // min-height: 50vh;
       a {
-        color: black;
+        color: #213f7d;
         .size {
           font-size: 18px;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          // .inline {
+          //   margin-left: 10px;
+          // }
         }
         .active {
-          background-color: rgb(255, 188, 87);
+          background-color: rgb(255, 242, 207);
+          border-left: 6px solid rgb(255, 204, 66);
           font-weight: 700;
           cursor: pointer;
           padding: 18px;
@@ -43,7 +90,7 @@
           padding: 18px;
           text-align: center;
           &:hover {
-            background-color: blanchedalmond;
+            background-color: rgb(250, 249, 247);
             font-weight: 700;
             cursor: pointer;
           }
@@ -55,8 +102,11 @@
       /* margin-left: 270px; */
       position: relative;
       left: 270px;
-      // border: 2px solid red;
+      background: #fbfbfb;
+      border: 2px solid red;
       height: max-content;
+      min-height: 100vh;
+      padding-top: 95px;
       // z-index: -1;
     }
   }

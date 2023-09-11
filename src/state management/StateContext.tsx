@@ -8,10 +8,17 @@ interface AppContextType {
   selectedAnswers: ICollation[];
   data: IQuestion[];
   object: IQuestion[];
+  report: IReport[];
   // questions: IQuestion;
   updateSelectedAnswers(arg: ICollation[]): void;
   updateData(arg: IQuestion[]): void;
   updateObject(arg: IQuestion[]): void;
+  updateReport(arg: IReport[]): void;
+}
+export interface IReport {
+  score: number;
+  grade: string;
+  remark: string;
 }
 
 //create a single context
@@ -33,6 +40,7 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({
   const [selectedAnswers, setSelectedAnswers] = useState<ICollation[]>([]);
   const [data, setData] = useState<IQuestion[]>([]);
   const [object, setObject] = useState<IQuestion[]>([]);
+  const [report, setReport] = useState<IReport[]>([]);
   const updateSelectedAnswers = (newState: ICollation[]) => {
     setSelectedAnswers(newState);
   };
@@ -42,6 +50,9 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({
   const updateObject = (newState: IQuestion[]) => {
     setObject(newState);
   };
+  const updateReport = (newState: IReport[]) => {
+    setReport(newState);
+  };
 
   const contextValue: AppContextType = {
     selectedAnswers,
@@ -50,6 +61,8 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({
     updateData,
     object,
     updateObject,
+    report,
+    updateReport,
   };
 
   return (

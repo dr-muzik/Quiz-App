@@ -8,11 +8,21 @@ import Report from "../components/dashboardComponent/Report";
 // import Welcome from "../components/dashboardComponent/Welcome";
 // import Quiz from "../components/dashboardComponent/Quiz";
 // import MainLayout from "../layouts/MainLayout";
+import {
+  FaCaretDown,
+  FaDeskpro,
+  FaFacebook,
+  FaFirefoxBrowser,
+  FaHouse,
+  FaMizuni,
+} from "react-icons/fa6";
+import { IconType } from "react-icons";
 
 // type Props = {};
 interface IComp {
   nav: string;
   link: string;
+  icon: IconType;
 }
 
 const Dashboard: React.FC = () => {
@@ -38,18 +48,33 @@ const Dashboard: React.FC = () => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [active, setActive] = useState(page);
+  const [show, setShow] = useState(false);
+
   console.log(active);
   const activeHandler = (arg: string) => {
     setActive(arg);
   };
+
+  const showHandler = () => {
+    setShow(!show);
+  };
   return (
     <div className="wrapper">
       <nav>
-        <h1>NAV BAR</h1>
+        <h1>E-Quiz</h1>
+        <div className="center">
+          <h5>Dashboard</h5>
+          <FaHouse />
+        </div>
         <div className="inner-left">
           <div className="circle-small"></div>
           <p>Michael Peters</p>
-          <img src="" alt="" />
+          <FaCaretDown onClick={showHandler} />
+          <div className={`dropdown ${!show ? "hidden" : ""}`}>
+            <Link to="/login">
+              <p>Logout</p>
+            </Link>
+          </div>
         </div>
       </nav>
       <main>
@@ -60,8 +85,8 @@ const Dashboard: React.FC = () => {
                 className={`size ${active === el.nav ? "active" : "component"}`}
                 onClick={() => activeHandler(el.nav)}
               >
-                {el.nav}
-              </p>
+                {el.nav} {<el.icon />}
+              </p>{" "}
             </Link>
           ))}
         </aside>
@@ -83,14 +108,17 @@ const Component: IComp[] = [
   {
     nav: "Home",
     link: "/dashboard/Home",
+    icon: FaFacebook,
   },
   {
     nav: "Quiz",
     link: "/dashboard/Quiz",
+    icon: FaDeskpro,
   },
   {
     nav: "Report",
     link: "/dashboard/Report",
+    icon: FaFirefoxBrowser,
   },
-  { nav: "Profile", link: "/dashboard/Profile" },
+  { nav: "Profile", link: "/dashboard/Profile", icon: FaMizuni },
 ];

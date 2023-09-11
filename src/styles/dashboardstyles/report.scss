@@ -1,0 +1,83 @@
+.Report {
+  padding: 20px 40px 40px 60px;
+  color: #213f7d;
+  & > h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 10px;
+    background-color: #fff;
+    height: 60vh;
+    box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+
+    .title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .courses {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      padding-inline: 80px;
+      &:hover {
+        cursor: pointer;
+      }
+      .courses-each {
+        border-bottom: 1px solid #213f7d;
+        width: 100%;
+        text-align: center;
+        padding-block: 10px;
+        color: #7aa0ec7e;
+      }
+      .diff {
+        border-left: 1px solid #213f7d;
+        border-right: 1px solid #213f7d;
+        border-bottom: none;
+        border-top: 1px solid #213f7d;
+        width: 100%;
+        text-align: center;
+        padding-block: 10px;
+      }
+    }
+    .report {
+      padding: 80px;
+      padding-top: 80px;
+      .default {
+        width: 100%;
+        color: #26498f6e;
+        text-align: center;
+        font-style: italic;
+        // background-color: #213f7d;
+      }
+      .table-rep {
+        display: flex;
+        justify-content: center;
+        transition: 1s ease-in-out;
+        table {
+          width: 100%;
+          max-width: 600px;
+          border: 1px solid #213f7d;
+          thead {
+            & > tr {
+              & > th {
+                background-color: #597ec72f;
+              }
+            }
+          }
+          thead,
+          tbody {
+            tr {
+              th,
+              td {
+                padding: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,20 +1,19 @@
 import React from "react";
-// import { Quiz2, Quiz1, Quiz3, IQuestion } from "../Questiongenerator";
-// import { ICollation } from "../App";
 import { Link } from "react-router-dom";
+import { IReport, useAppContext } from "../state management/StateContext";
 
-import { useAppContext } from "../state management/StateContext";
-
-const Details = () => {
+const Details: React.FC = () => {
   // const arrObj = Object.entries(selectedAnswers).map((el) =>
   //   Object.fromEntries([el])
 
   const {
     selectedAnswers,
     data,
+    report,
     updateData,
     updateObject,
     updateSelectedAnswers,
+    updateReport,
   } = useAppContext();
 
   const resetState = () => {
@@ -22,6 +21,7 @@ const Details = () => {
     updateObject([]);
     updateSelectedAnswers([]);
   };
+
   /*  filter throught the array to get only the correct answer
   then get the lenght of the array */
   const correctAnsNum = selectedAnswers.filter(
@@ -55,8 +55,6 @@ const Details = () => {
   console.log(grade);
   console.log(totalScore);
 
-  //   const playAgainHandler = () => {};
-
   selectedAnswers.sort((a, b) => {
     // const idA = parseInt(a.id);
     // const idB = parseInt(b.id);
@@ -71,6 +69,16 @@ const Details = () => {
   });
   console.log(selectedAnswers);
 
+  const singleGrade: string = grade[1];
+  const singleRemark: string = grade[0];
+
+  const newReport: IReport = {
+    grade: singleGrade,
+    score: totalScore,
+    remark: singleRemark,
+  };
+  updateReport([...report, newReport]);
+
   return (
     <div className="details">
       <div className="container">
@@ -78,7 +86,7 @@ const Details = () => {
           <Link onClick={resetState} to="/dashboard/Quiz">
             <h3>Play Again</h3>
           </Link>
-          <Link onClick={resetState} to="/dashboard/Report">
+          <Link to="/dashboard/Report">
             <h3>End</h3>
           </Link>
         </div>
@@ -118,14 +126,7 @@ const Details = () => {
                   }`}
                 >
                   {userdetails.Answer}
-                </span>{" "}
-                {/* {Questiongenerator.some(
-            (el) => el.correctAnswer === userdetails.Answer
-          ) ? (
-            <img src="/image/green-tick.png" alt="tick" />
-          ) : (
-            <img src="/image/heart.png" alt="heart" />
-          )} */}
+                </span>
               </p>
               {data.every((el) => el.correctAnswer !== userdetails.Answer) && (
                 <p className="correct-wrong">

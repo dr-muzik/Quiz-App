@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 // import { ICollation } from "../App";
 import { useAppContext } from "../state management/StateContext";
 
-const GameInt = () => {
+const GameInt: React.FC = () => {
   const [index, setIndex] = useState<number>(0);
 
   //called the global state manager
