@@ -56,6 +56,10 @@
         display: flex;
         justify-content: center;
         transition: 1s ease-in-out;
+        & > h3 {
+          font-style: italic;
+          color: #26498f6e;
+        }
         table {
           width: 100%;
           max-width: 600px;

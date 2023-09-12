@@ -75,7 +75,7 @@ const Details: React.FC = () => {
 
   const newReport: IReport = {
     grade: singleGrade,
-    score: totalScore,
+    score: userScore,
     remark: singleRemark,
     subject: course,
   };

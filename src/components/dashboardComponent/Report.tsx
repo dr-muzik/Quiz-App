@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useAppContext } from "../../state management/StateContext";
+// import Tbody from "../Reportcomponent/Tbody";
+import Table from "../Reportcomponent/Table";
 
 // type Props = {}
-interface IReport {
-  score: number;
-  grade: string;
-  remark: string;
-}
+// interface IReport {
+//   score: number;
+//   grade: string;
+//   remark: string;
+// }
 
 const Report: React.FC = () => {
   const [active, setActive] = useState<number | null>(null);
@@ -17,6 +19,11 @@ const Report: React.FC = () => {
 
   const { report } = useAppContext();
   console.log(report);
+
+  const CRS = report.filter((el) => el.subject === "C.R.S");
+  const COS = report.filter((el) => el.subject === "Computer-Studies");
+  const HIS = report.filter((el) => el.subject === "History");
+
   return (
     <div className="Report">
       <h1>Your Report, MICHEAL</h1>
@@ -45,74 +52,36 @@ const Report: React.FC = () => {
           </div>
         </div>
         <div className="report">
+          {/* DEFAULT report */}
           <div className={`${active === null ? "default" : "d-none"}`}>
             <p>Click on any course to view your report!</p>
           </div>
+
+          {/* C.R.S report */}
           <div className={`${active !== 1 ? "d-none" : "table-rep"}`}>
-            {CRS.map((el, i) => (
-              <table key={i}>
-                <thead>
-                  <tr>
-                    <th>S/N</th>
-                    <th>SCORE</th>
-                    <th>GRADE</th>
-                    <th>REMARK</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{i + 1}</td>
-                    <td>{el.score}</td>
-                    <td>{el.grade}</td>
-                    <td>{el.remark}</td>
-                  </tr>
-                </tbody>
-              </table>
-            ))}
+            {CRS.length === 0 ? (
+              <h3>Take a quiz to see your report!</h3>
+            ) : (
+              <Table CRS={CRS} COS={COS} HIS={HIS} active={active} />
+            )}
           </div>
+
+          {/* COMPUTER report */}
           <div className={`${active !== 2 ? "d-none" : "table-rep"}`}>
-            {Computerdata.map((el, i) => (
-              <table key={i}>
-                <thead>
-                  <tr>
-                    <th>S/N</th>
-                    <th>SCORE</th>
-                    <th>GRADE</th>
-                    <th>REMARK</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{i + 1}</td>
-                    <td>{el.score}</td>
-                    <td>{el.grade}</td>
-                    <td>{el.remark}</td>
-                  </tr>
-                </tbody>
-              </table>
-            ))}
+            {COS.length === 0 ? (
+              <h3>Take a quiz to see your report!</h3>
+            ) : (
+              <Table CRS={CRS} COS={COS} HIS={HIS} active={active} />
+            )}
           </div>
+
+          {/* HISTORY report */}
           <div className={`${active !== 3 ? "d-none" : "table-rep"}`}>
-            {Historydata.map((el, i) => (
-              <table key={i}>
-                <thead>
-                  <tr>
-                    <th>S/N</th>
-                    <th>SCORE</th>
-                    <th>GRADE</th>
-                    <th>REMARK</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{i + 1}</td>
-                    <td>{el.score}</td>
-                    <td>{el.grade}</td>
-                    <td>{el.remark}</td>
-                  </tr>
-                </tbody>
-              </table>
-            ))}
+            {HIS.length === 0 ? (
+              <h3>Take a quiz to see your report!</h3>
+            ) : (
+              <Table CRS={CRS} COS={COS} HIS={HIS} active={active} />
+            )}{" "}
           </div>
         </div>
       </div>
@@ -122,24 +91,24 @@ const Report: React.FC = () => {
 
 export default Report;
 
-const Historydata: IReport[] = [
-  {
-    score: 50,
-    grade: "C",
-    remark: "credit",
-  },
-];
-const Computerdata: IReport[] = [
-  {
-    score: 80,
-    grade: "A",
-    remark: "Excellent",
-  },
-];
-const CRS: IReport[] = [
-  {
-    score: 70,
-    grade: "B",
-    remark: "Better",
-  },
-];
+// const Historydata: IReport[] = [
+//   {
+//     score: 50,
+//     grade: "C",
+//     remark: "credit",
+//   },
+// ];
+// const Computerdata: IReport[] = [
+//   {
+//     score: 80,
+//     grade: "A",
+//     remark: "Excellent",
+//   },
+// ];
+// const CRS: IReport[] = [
+//   {
+//     score: 70,
+//     grade: "B",
+//     remark: "Better",
+//   },
+// ];
