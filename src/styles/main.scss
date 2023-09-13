@@ -1,4 +1,259 @@
 .main-section {
-  height: 60vh;
-  background-color: aquamarine;
+  .container {
+    .hero {
+      display: flex;
+      // border: 2px solid red;
+      gap: 30px;
+      .inner-left {
+        width: 42%;
+        // border: 2px solid green;
+        padding-top: 100px;
+        color: #fff;
+        & > h1 {
+          font-size: 45.764px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: normal;
+          color: #fff;
+          margin-bottom: 30px;
+        }
+        .btn-start {
+          border-radius: 4px;
+          border: 1px solid rgba(171, 163, 163, 0.2);
+          background: #798ac9;
+          padding: 13px 40px;
+          margin-top: 30px;
+        }
+      }
+      .inner-right {
+        width: 50%;
+        // border: 2px solid yellow;
+        img:nth-of-type(1) {
+          // width: 100%;
+          position: relative;
+          bottom: 100px;
+          right: 200px;
+          height: 100%;
+          max-height: 600px;
+        }
+        img:nth-of-type(2) {
+          position: absolute;
+          top: 150px;
+          right: 80px;
+          width: 100%;
+          max-width: 1000px;
+        }
+      }
+    }
+    .about {
+      display: flex;
+      gap: 90px;
+      .about-left {
+        padding-top: 70px;
+        display: flex;
+        gap: 30px;
+        .inner-left {
+          padding-top: 50px;
+          display: flex;
+          flex-direction: column;
+          row-gap: 30px;
+          .card {
+            border-radius: 4px;
+            background: #fff;
+            box-shadow: 7px 10px 50px 0px #e8e2f0;
+            padding: 30px 30px 30px 48px;
+            width: 100%;
+            max-width: 280px;
+            border-left: 4px solid rgba(50, 19, 161, 0.74);
+            & > h4 {
+              color: #5c5e6e;
+
+              font-size: 22px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 128.6%; /* 28.292px */
+              letter-spacing: 0.88px;
+              margin-bottom: 8px;
+            }
+            & > p {
+              color: #756f6f;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 128.6%; /* 20.576px */
+              letter-spacing: 1.2px;
+            }
+          }
+        }
+        .inner-right {
+          display: flex;
+          flex-direction: column;
+          row-gap: 30px;
+          .card {
+            border-radius: 4px;
+            background: #fff;
+            box-shadow: 7px 10px 50px 0px #e8e2f0;
+            padding: 30px 30px 30px 48px;
+            width: 100%;
+            max-width: 280px;
+            border-left: 4px solid rgb(57, 19, 161);
+            & > h4 {
+              color: #5c5e6e;
+
+              font-size: 22px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 128.6%; /* 28.292px */
+              letter-spacing: 0.88px;
+              margin-bottom: 8px;
+            }
+            & > p {
+              color: #756f6f;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 128.6%; /* 20.576px */
+              letter-spacing: 1.2px;
+            }
+          }
+        }
+      }
+      .about-right {
+        width: 100%;
+        max-width: 331px;
+        & > h1 {
+          color: #857885;
+
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 128.6%; /* 51.44px */
+          letter-spacing: 1.6px;
+        }
+        & > p {
+          color: #857885;
+
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 128.6%; /* 20.576px */
+          letter-spacing: 0.64px;
+        }
+        .link-to-about {
+          color: #5c0e62;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: normal;
+        }
+      }
+    }
+  }
+  .testimonial {
+    .rectangle {
+      position: absolute;
+      top: 0px;
+      z-index: -1;
+      // height: 700px;
+      width: 100%;
+    }
+    .left-half {
+      position: absolute;
+      z-index: -1;
+      height: 750px;
+      right: 0;
+      top: -170px;
+    }
+    position: relative;
+    height: 700px;
+    // border: 2px solid red;
+
+    & > .container {
+      z-index: 99999;
+      // border: 2px solid green;
+      height: 500px;
+      .container-inner {
+        display: flex;
+        gap: 30px;
+        height: inherit;
+        .inner-left {
+          // border: 2px solid red;
+          padding-top: 200px;
+          color: #fff;
+          padding-top: 100px;
+          width: 100%;
+          max-width: 483px;
+          & > h1 {
+            color: #fff;
+            margin-top: 240px;
+            font-size: 35px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 128.6%; /* 51.44px */
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+          }
+        }
+        .inner-right {
+          width: 100%;
+          position: relative;
+          .man {
+            position: absolute;
+            left: 200px;
+            top: 120px;
+          }
+          .man-beard {
+            position: absolute;
+            right: -110px;
+            top: 20px;
+          }
+          .lady {
+            position: absolute;
+            right: -20px;
+            top: 260px;
+          }
+          .y-lady {
+            position: absolute;
+            left: 180px;
+            bottom: -90px;
+          }
+          .old-lady {
+            position: absolute;
+            right: -100px;
+            bottom: -10px;
+          }
+        }
+      }
+      .newsletter {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 30px;
+        border-radius: 10px;
+        background: #fff;
+        padding: 20px;
+        position: relative;
+        top: 140px;
+        .btn-e-quiz {
+          border-radius: 4px;
+          border: 1px solid rgba(171, 163, 163, 0.2);
+          background: #ffbc51;
+          padding: 13px 40px;
+          color: #fff;
+          text-align: center;
+          font-family: Proxima Nova;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+        .heading {
+          color: #5c515c;
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 128.6%; /* 51.44px */
+          letter-spacing: 1.6px;
+        }
+      }
+    }
+  }
 }

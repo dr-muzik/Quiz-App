@@ -1,7 +1,10 @@
 footer {
+  background: #210933;
   text-align: center;
-  padding-block: 30px;
+  padding-block: 80px;
   & > p {
+    color: #fff;
     margin-bottom: 20px;
+    font-size: 12px;
   }
 }

@@ -3,13 +3,6 @@ import { useAppContext } from "../../state management/StateContext";
 // import Tbody from "../Reportcomponent/Tbody";
 import Table from "../Reportcomponent/Table";
 
-// type Props = {}
-// interface IReport {
-//   score: number;
-//   grade: string;
-//   remark: string;
-// }
-
 const Report: React.FC = () => {
   const [active, setActive] = useState<number | null>(null);
 
@@ -20,6 +13,7 @@ const Report: React.FC = () => {
   const { report } = useAppContext();
   console.log(report);
 
+  //getting only one particular subject from the report Array
   const CRS = report.filter((el) => el.subject === "C.R.S");
   const COS = report.filter((el) => el.subject === "Computer-Studies");
   const HIS = report.filter((el) => el.subject === "History");
@@ -60,7 +54,7 @@ const Report: React.FC = () => {
           {/* C.R.S report */}
           <div className={`${active !== 1 ? "d-none" : "table-rep"}`}>
             {CRS.length === 0 ? (
-              <h3>Take a quiz to see your report!</h3>
+              <h3>Take C.R.S quiz to see your report!</h3>
             ) : (
               <Table CRS={CRS} COS={COS} HIS={HIS} active={active} />
             )}
@@ -69,7 +63,7 @@ const Report: React.FC = () => {
           {/* COMPUTER report */}
           <div className={`${active !== 2 ? "d-none" : "table-rep"}`}>
             {COS.length === 0 ? (
-              <h3>Take a quiz to see your report!</h3>
+              <h3>Take Computer Sci. quiz to see your report!</h3>
             ) : (
               <Table CRS={CRS} COS={COS} HIS={HIS} active={active} />
             )}
@@ -90,25 +84,3 @@ const Report: React.FC = () => {
 };
 
 export default Report;
-
-// const Historydata: IReport[] = [
-//   {
-//     score: 50,
-//     grade: "C",
-//     remark: "credit",
-//   },
-// ];
-// const Computerdata: IReport[] = [
-//   {
-//     score: 80,
-//     grade: "A",
-//     remark: "Excellent",
-//   },
-// ];
-// const CRS: IReport[] = [
-//   {
-//     score: 70,
-//     grade: "B",
-//     remark: "Better",
-//   },
-// ];

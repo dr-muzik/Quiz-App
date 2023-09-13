@@ -1,24 +1,26 @@
 .login {
   // border: solid red;
   .container {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    form {
+    & > .inner {
+      height: 100vh;
       width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      max-width: 350px;
-      height: auto;
-      padding: 20px;
-      // transform: translate(93%, 60%);
-      // border: 2px solid gray;
-      background-color: rgb(255, 239, 194);
-      .btn-w {
-        .btn {
-          width: 100%;
+      form {
+        width: 100%;
+
+        max-width: 350px;
+        height: auto;
+        padding: 20px;
+        // transform: translate(93%, 60%);
+        // border: 2px solid gray;
+        background-color: rgb(255, 239, 194);
+        .btn-w {
+          .btn {
+            width: 100%;
+          }
         }
       }
     }

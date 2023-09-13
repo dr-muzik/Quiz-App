@@ -10,12 +10,14 @@ interface AppContextType {
   object: IQuestion[];
   report: IReport[];
   course: string | undefined;
+  hide: boolean;
   // questions: IQuestion;
   updateSelectedAnswers(arg: ICollation[]): void;
   updateData(arg: IQuestion[]): void;
   updateObject(arg: IQuestion[]): void;
   updateReport(arg: IReport[]): void;
   updateCourse(arg: string | undefined): void;
+  updateHide(arg: boolean): void;
 }
 export interface IReport {
   score: number;
@@ -45,6 +47,11 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({
   const [object, setObject] = useState<IQuestion[]>([]);
   const [report, setReport] = useState<IReport[]>([]);
   const [course, setCourse] = useState<string | undefined>("");
+  const [hide, setHide] = useState(true);
+
+  const updateHide = (newState: boolean) => {
+    setHide(newState);
+  };
   const updateSelectedAnswers = (newState: ICollation[]) => {
     setSelectedAnswers(newState);
   };
@@ -65,6 +72,7 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({
     selectedAnswers,
     updateSelectedAnswers,
     data,
+    hide,
     updateData,
     object,
     course,
@@ -72,6 +80,7 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({
     report,
     updateReport,
     updateCourse,
+    updateHide,
   };
 
   return (

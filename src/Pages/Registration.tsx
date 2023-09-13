@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // type Props = {};
 
-const Registration = () => {
+const Registration: React.FC = () => {
   return (
     <div className="reg">
       <div className="container">
@@ -135,7 +135,7 @@ const Registration = () => {
             </button>
           </div>
           <p>
-            Already have an account? <Link to="/">Sign in</Link>
+            Already have an account? <Link to="/login">Sign in</Link>
           </p>
         </form>
       </div>

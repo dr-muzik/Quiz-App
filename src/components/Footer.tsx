@@ -6,11 +6,11 @@ import "../styles/footer.scss";
 const Footer: React.FC = () => {
   return (
     <footer>
-      <p>for more info call: 0906 358 3589</p>
+      <p>Designed and developed by DM-Tech</p>
+      <p>for more info call: +234 906 358 3589</p>
       <p>
-        <span>&copy</span> Copyright 2023
+        <span>&copy;</span> Copyright 2023
       </p>
-      <p>designed by DM-Tech</p>
     </footer>
   );
 };

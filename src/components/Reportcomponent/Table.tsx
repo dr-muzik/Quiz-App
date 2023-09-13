@@ -11,11 +11,17 @@ interface IProp {
 // type Props = {}
 
 const Table: React.FC<IProp> = ({ CRS, COS, HIS, active }) => {
-  const religion = CRS.map((el, i) => <Tbody report={el} key={i} />);
+  const religion: JSX.Element[] = CRS.map((el, i) => (
+    <Tbody report={el} key={i} />
+  ));
 
-  const computer = COS.map((el, i) => <Tbody report={el} key={i} />);
+  const computer: JSX.Element[] = COS.map((el, i) => (
+    <Tbody report={el} key={i} />
+  ));
 
-  const history = HIS.map((el, i) => <Tbody report={el} key={i} />);
+  const history: JSX.Element[] = HIS.map((el, i) => (
+    <Tbody report={el} key={i} />
+  ));
 
   return (
     <table>

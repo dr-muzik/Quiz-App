@@ -1,0 +1,26 @@
+.banner-color {
+  position: relative;
+  z-index: 99;
+  background: #e2dbe7;
+  .banner {
+    .main-banner {
+      position: absolute;
+      top: 0;
+      height: 599px;
+      width: 100%;
+      z-index: -1;
+    }
+    .small-banner {
+      position: absolute;
+      top: 0;
+      opacity: 1;
+      z-index: -1;
+    }
+    .component {
+      z-index: 9999;
+    }
+    // background-image: url("../../public/image/main-banner.png");
+    // background-repeat: no-repeat;
+    // background-size: auto;
+  }
+}
