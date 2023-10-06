@@ -1,0 +1,32 @@
+.newsletter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 30px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 20px;
+  position: relative;
+  top: 90px;
+  .btn-e-quiz {
+    border-radius: 4px;
+    border: 1px solid rgba(171, 163, 163, 0.2);
+    background: #ffbc51;
+    padding: 13px 40px;
+    color: #fff;
+    text-align: center;
+    font-family: Proxima Nova;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .heading {
+    color: #5c515c;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 128.6%; /* 51.44px */
+    letter-spacing: 1.6px;
+  }
+}

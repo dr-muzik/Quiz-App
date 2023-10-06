@@ -9,11 +9,11 @@ const Profile: React.FC = () => {
         <div className="user">
           <h2>User Profile</h2>
         </div>
-        <div className="photo">
+        {/* <div className="photo">
           <div className="circle">
-            {/* <img src="/image/IMG_wiz.jpg" alt="" /> */}
+           
           </div>
-        </div>
+        </div> */}
         <div className="details">
           <table>
             <tbody>

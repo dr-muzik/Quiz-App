@@ -2,6 +2,16 @@ import React from "react";
 import { useState, useContext, createContext } from "react";
 import { ICollation } from "../App";
 import { IQuestion } from "../Questiongenerator";
+import {
+  LoginResponse,
+  LoginUserInput,
+  SignupUserInput,
+  User,
+} from "../authStore/authInterface/auth.interface";
+import Cookies from "js-cookie";
+import { apollo } from "../apollo";
+import { LOGIN, SIGN } from "../apollo/queries/auth.query";
+import { TOKEN_NAME } from "../utils/constants";
 // import { IQuestion } from "../Questiongenerator";
 
 interface AppContextType {
@@ -11,6 +21,11 @@ interface AppContextType {
   report: IReport[];
   course: string | undefined;
   hide: boolean;
+  login: (input: LoginUserInput) => Promise<void>;
+  signup: (input: SignupUserInput) => Promise<void>;
+  // user: User | undefined;
+  loading: boolean;
+  singleUser: User;
   // questions: IQuestion;
   updateSelectedAnswers(arg: ICollation[]): void;
   updateData(arg: IQuestion[]): void;
@@ -68,6 +83,55 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({
     setCourse(newState);
   };
 
+  // authContext
+  const [singleUser, setSingleUser] = useState<User>({} as User);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  // const userRef = useRef<User>({} as User);
+
+  console.log(singleUser);
+  const login = async (input: LoginUserInput) => {
+    try {
+      setLoading(true);
+      const { data } = await apollo.mutate({
+        mutation: LOGIN,
+        variables: { input },
+      });
+      const res = data.login as LoginResponse;
+      const use = res.user;
+      setSingleUser(use);
+
+      if (res) {
+        Cookies.set(TOKEN_NAME, res?.access_token);
+        window.location.href = "/dashboard/Home";
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  //signup
+  const signup = async (input: SignupUserInput) => {
+    try {
+      setLoading(true);
+      const { data } = await apollo.mutate({
+        mutation: SIGN,
+        variables: { input },
+      });
+      const res = data.signup as SignupUserInput;
+      if (res) {
+        // Cookies.set(TOKEN_NAME, res?.access_token);
+        window.location.href = "/signup/redirect";
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const contextValue: AppContextType = {
     selectedAnswers,
     updateSelectedAnswers,
@@ -81,6 +145,11 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({
     updateReport,
     updateCourse,
     updateHide,
+    loading,
+    login,
+    // user,
+    singleUser,
+    signup,
   };
 
   return (

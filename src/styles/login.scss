@@ -1,26 +1,95 @@
 .login {
   // border: solid red;
-  .container {
-    & > .inner {
-      height: 100vh;
+  .containers {
+    display: flex;
+    gap: 69px;
+    // justify-content: center;
+    // border: 2px solid #ff0000;
+    align-items: center;
+    height: 100vh;
+    padding: 40px;
+
+    & > .inner-right {
+      // height: 100vh;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      .intro {
+        padding: 20px;
+        & > h1 {
+          color: #213f7d;
+
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          letter-spacing: -1.6px;
+        }
+        & > p {
+          color: #545f7d;
+          // margin-bottom: 20px;
+          margin-top: 10px;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
 
       form {
         width: 100%;
-
-        max-width: 350px;
-        height: auto;
+        max-width: 470px;
         padding: 20px;
-        // transform: translate(93%, 60%);
-        // border: 2px solid gray;
-        background-color: rgb(255, 239, 194);
+        height: auto;
+        & > div {
+          .form-control {
+            padding-block: 15px;
+            padding-inline: 15px;
+            &::placeholder {
+              color: #545f7d;
+              opacity: 0.6;
+            }
+          }
+          .form-label {
+            color: #213f7d;
+          }
+        }
+        .password {
+          position: relative;
+          .pass {
+            position: absolute;
+            bottom: 17px;
+            right: 19px;
+            color: #545f7d;
+            opacity: 0.6;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+
         .btn-w {
           .btn {
             width: 100%;
+            padding-block: 15px;
+            margin-bottom: 10px;
           }
+        }
+        & > p {
+          color: #213f7d;
+        }
+      }
+    }
+    & > .inner-left {
+      // border: 2px solid green;
+      width: 100%;
+      & > a {
+        position: relative;
+        top: -70px;
+        color: #213f7d;
+        &:hover {
+          color: #637caf;
+        }
+        & > h1 {
+          font-weight: 700;
         }
       }
     }

@@ -1,14 +1,26 @@
+@mixin flex() {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .main-section {
   .container {
     .hero {
       display: flex;
       // border: 2px solid red;
       gap: 30px;
+      @media screen and (max-width: 768px) {
+        display: block;
+      }
       .inner-left {
         width: 42%;
         // border: 2px solid green;
         padding-top: 100px;
         color: #fff;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
         & > h1 {
           font-size: 45.764px;
           font-style: normal;
@@ -42,21 +54,39 @@
           right: 80px;
           width: 100%;
           max-width: 1000px;
+          @media screen and (max-width: 768px) {
+            display: none;
+          }
         }
       }
     }
     .about {
       display: flex;
       gap: 90px;
+      margin-top: 80px;
+      @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
       .about-left {
         padding-top: 70px;
         display: flex;
         gap: 30px;
+        @media screen and (max-width: 768px) {
+          display: block;
+          // margin-bottom: 10px;
+          border: 2px solid red;
+          padding-top: 0;
+        }
         .inner-left {
           padding-top: 50px;
           display: flex;
           flex-direction: column;
           row-gap: 30px;
+          @media screen and (max-width: 768px) {
+            margin-bottom: 20px;
+            padding-top: 0;
+          }
           .card {
             border-radius: 4px;
             background: #fff;
@@ -176,11 +206,12 @@
         height: inherit;
         .inner-left {
           // border: 2px solid red;
-          padding-top: 200px;
+
           color: #fff;
           padding-top: 100px;
           width: 100%;
-          max-width: 483px;
+          max-width: 400px;
+          // border: 2px solid red;
           & > h1 {
             color: #fff;
             margin-top: 240px;
@@ -197,28 +228,88 @@
           position: relative;
           .man {
             position: absolute;
-            left: 200px;
-            top: 120px;
+            // border: 2px solid red;
+            right: 200px;
+            top: 160px;
+            @include flex();
           }
           .man-beard {
             position: absolute;
             right: -110px;
-            top: 20px;
+            top: 60px;
+            @include flex();
           }
           .lady {
             position: absolute;
             right: -20px;
-            top: 260px;
+            top: 300px;
+            @include flex();
           }
           .y-lady {
             position: absolute;
-            left: 180px;
-            bottom: -90px;
+            right: 200px;
+            bottom: -100px;
+            @include flex();
           }
           .old-lady {
             position: absolute;
-            right: -100px;
-            bottom: -10px;
+            right: -130px;
+            bottom: -60px;
+            @include flex();
+          }
+          .testimony {
+            width: 200px;
+            // border: 2px solid yellow;
+            color: white;
+            text-align: center;
+            z-index: -1;
+            animation: move 1s ease-in;
+            & > p {
+              font-size: 14px;
+              color: #fff;
+              text-align: center;
+              font-style: normal;
+              line-height: 128.6%; /* 20.576px */
+              letter-spacing: 0.64px;
+            }
+            & > h5 {
+              color: #ffbc51;
+
+              font-size: 15.123px;
+              font-style: normal;
+              font-weight: 900;
+              line-height: 128.6%; /* 27.164px */
+              letter-spacing: 1.584px;
+              text-transform: uppercase;
+            }
+            & > p:nth-of-type(1) {
+              margin-bottom: 10px;
+              font-style: italic;
+              font-weight: 600;
+            }
+            & > p:nth-of-type(2) {
+              font-size: 12px;
+            }
+          }
+          .img {
+            z-index: 999;
+            &:hover {
+              cursor: pointer;
+              border-radius: 100%;
+              border: 2px solid #f7f1ba7e;
+            }
+          }
+          .zoom-in {
+            border-radius: 100%;
+            border: 2px solid #fff;
+            box-shadow: 7px 10px 50px 0px #f5f2f8;
+
+            transform: scale(1.03);
+            transition: transform 1s ease-in-out;
+          }
+          .zoom-out {
+            transform: scale(0.9);
+            transition: transform 1s ease-in-out;
           }
         }
       }
@@ -255,5 +346,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(0);
   }
 }

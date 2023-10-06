@@ -16,6 +16,7 @@ import Report from "./components/dashboardComponent/Report";
 import Profile from "./components/dashboardComponent/Profile";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
+import Redirect from "./Pages/Redirect";
 // import { IQuestion } from "./Questiongenerator";
 
 export interface ICollation {
@@ -25,6 +26,7 @@ export interface ICollation {
 }
 
 function App() {
+  // console.log(API_URL);
   return (
     <div className="App">
       <Router>
@@ -35,6 +37,7 @@ function App() {
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Registration />} />
+          <Route path="signup/:id" element={<Redirect />} />
           <Route path="dashboard/:page" element={<Dashboard />}>
             <Route index element={<Welcome />} />
             <Route path="Quiz" element={<Quiz />} />

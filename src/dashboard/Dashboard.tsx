@@ -17,6 +17,9 @@ import {
   FaMizuni,
 } from "react-icons/fa6";
 import { IconType } from "react-icons";
+import { useAppContext } from "../state management/StateContext";
+import Cookies from "js-cookie";
+import { TOKEN_NAME } from "../utils/constants";
 
 // type Props = {};
 interface IComp {
@@ -58,48 +61,65 @@ const Dashboard: React.FC = () => {
   const showHandler = () => {
     setShow(!show);
   };
-  return (
-    <div className="wrapper">
-      <nav>
-        <h1>E-Quiz</h1>
-        <div className="center">
-          <h5>Dashboard</h5>
-          <FaHouse />
-        </div>
-        <div className="inner-left">
-          <div className="circle-small"></div>
-          <p>Michael Peters</p>
-          <FaCaretDown onClick={showHandler} />
-          <div className={`dropdown ${!show ? "hidden" : ""}`}>
-            <Link to="/login">
-              <p>Logout</p>
-            </Link>
+
+  const { singleUser, loading } = useAppContext();
+  console.log(singleUser?.courses);
+  const token = Cookies.get(TOKEN_NAME);
+  if (!token) {
+    return <h1>invalid user</h1>;
+  } else if (loading) {
+    return loading;
+  } else
+    return (
+      <div className="wrapper">
+        <nav>
+          <h1>E-Quiz</h1>
+          <div className="center">
+            <h5>Dashboard</h5>
+            <FaHouse />
           </div>
-        </div>
-      </nav>
-      <main>
-        <aside>
-          {Component.map((el, i) => (
-            <Link to={el.link} key={i}>
-              <p
-                className={`size ${active === el.nav ? "active" : "component"}`}
-                onClick={() => activeHandler(el.nav)}
+          <div className="inner-left">
+            <div className="circle-small"></div>
+            <p>{singleUser?.username}</p>
+            <FaCaretDown onClick={showHandler} />
+            <div className={`dropdown ${!show ? "hidden" : ""}`}>
+              <button
+                className="btn"
+                onClick={() => {
+                  Cookies.remove(TOKEN_NAME);
+                  window.location.href = "/login";
+                }}
               >
-                {el.nav} {<el.icon />}
-              </p>{" "}
-            </Link>
-          ))}
-        </aside>
-        <section>
-          {/* <h1>WELCOME USER</h1> */}
-          {/* <Router> */}
-          {/* <Outlet /> */}
-          {componentToRender}
-          {/* </Router> */}
-        </section>
-      </main>
-    </div>
-  );
+                Logout
+              </button>
+            </div>
+          </div>
+        </nav>
+        <main>
+          <aside>
+            {Component.map((el, i) => (
+              <Link to={el.link} key={i}>
+                <p
+                  className={`size ${
+                    active === el.nav ? "active" : "component"
+                  }`}
+                  onClick={() => activeHandler(el.nav)}
+                >
+                  {el.nav} {<el.icon />}
+                </p>{" "}
+              </Link>
+            ))}
+          </aside>
+          <section>
+            {/* <h1>WELCOME USER</h1> */}
+            {/* <Router> */}
+            {/* <Outlet /> */}
+            {componentToRender}
+            {/* </Router> */}
+          </section>
+        </main>
+      </div>
+    );
 };
 
 export default Dashboard;
